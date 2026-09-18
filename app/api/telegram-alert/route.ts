@@ -35,11 +35,7 @@ export async function POST(request: Request) {
         : "Unknown"
     }
 
-💸 <b>StarBridge Fee (1%):</b> ${
-      body.volumeUSD
-        ? `$${(Number(body.volumeUSD) * 0.01).toFixed(2)}`
-        : "Unknown"
-    }
+
 
 🕐 <b>Time:</b> ${new Date().toLocaleString("pt-BR", {
       dateStyle: "medium",

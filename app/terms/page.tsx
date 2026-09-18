@@ -26,7 +26,7 @@ export default function TermsPage() {
         <article><h2>Live quotes</h2><p>Displayed fees, prices, estimated outputs and completion times are estimates that can change before or during execution. The wallet transaction and live route are the relevant information immediately before signing.</p></article>
         <article><h2>User responsibility</h2><p>Users are responsible for selecting the correct network, token, amount and destination and for reviewing wallet approval requests before signing.</p></article>
         <article><h2>Irreversible transactions</h2><p>Blockchain transactions may be irreversible. A mistaken network, recipient, token or approval can result in loss of assets.</p></article>
-        <article><h2>Fees</h2><p>StarBridge currently configures a 1% interface fee on eligible widget transactions. Other costs may apply depending on the selected route, network and underlying providers.</p></article>
+        <article><h2>Fees</h2><p>StarBridge does not add a separate interface fee. Other costs may apply depending on the selected route, network and underlying providers.</p></article>
       </section>
 
       <section className="disclaimer">

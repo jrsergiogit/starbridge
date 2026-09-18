@@ -59,9 +59,9 @@ export default function SecurityPage() {
         <article>
           <h2>Fee transparency</h2>
           <p>
-            StarBridge currently configures a 1% interface fee on eligible widget
-            transactions. The final route may also include network gas, provider,
-            swap, liquidity or other route-related costs shown by the live quote.
+            StarBridge does not add a separate interface fee. The final route may
+            include network gas, provider, swap, liquidity or other route-related
+            costs shown by the live quote.
           </p>
         </article>
         <article>

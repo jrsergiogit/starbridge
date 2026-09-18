@@ -35,9 +35,6 @@ export default function Bridge() {
       // into Bridge or Swap and the other tab disappears.
       subvariant: "split" as const,
 
-      // StarBridge fee: 1%
-      fee: 0.01,
-
       // Keep Nordstern blocked because its routes are currently reverting.
       exchanges: {
         deny: ["nordstern"],

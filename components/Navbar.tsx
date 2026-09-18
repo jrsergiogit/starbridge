@@ -23,10 +23,6 @@ export default function Navbar() {
           Transactions
         </Link>
 
-        <Link href="/chains">
-          Supported Chains
-        </Link>
-
         <Link href="/learn">
           Learn
         </Link>
@@ -38,6 +34,7 @@ export default function Navbar() {
 
       <div className="headerControls" aria-hidden="true">
         <span className="sun">☼</span>
+
         <span className="switch">
           <i />
         </span>
