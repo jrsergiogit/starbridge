@@ -1,0 +1,4 @@
+Contact: mailto:support@starbridge.finance
+Canonical: https://starbridge.finance/.well-known/security.txt
+Policy: https://starbridge.finance/security
+Preferred-Languages: en

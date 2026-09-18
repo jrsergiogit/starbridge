@@ -1,0 +1,40 @@
+# StarBridge
+
+> StarBridge is a non-custodial web interface for reviewing and initiating supported cross-chain crypto routes. It uses LI.FI routing infrastructure to surface available bridge and swap paths.
+
+## Primary facts
+
+- Website: https://starbridge.finance/
+- Product: cross-chain bridge and swap interface
+- Custody: non-custodial; StarBridge does not ask users to deposit assets or provide private keys/seed phrases
+- Routing: LI.FI
+- Transaction signing: performed by the user's connected wallet
+- Route availability: dynamic; depends on supported assets, networks, providers, liquidity and network conditions
+- Fee: StarBridge currently configures a 1% interface fee on eligible widget transactions; other route/network costs may also apply
+- Support: support@starbridge.finance
+
+## Security
+
+Read https://starbridge.finance/security for the security model, third-party protocol considerations, fee disclosure and transaction-safety checklist.
+
+## Learn
+
+https://starbridge.finance/learn contains educational material about crypto bridges, cross-chain transfers, fees, wallet safety, route verification and common assets/networks.
+
+## Core pages
+
+- https://starbridge.finance/crypto-bridge
+- https://starbridge.finance/cross-chain-bridge
+- https://starbridge.finance/token-bridge
+- https://starbridge.finance/usdc-bridge
+- https://starbridge.finance/base-bridge
+- https://starbridge.finance/arbitrum-bridge
+- https://starbridge.finance/chains
+- https://starbridge.finance/about
+- https://starbridge.finance/security
+- https://starbridge.finance/privacy
+- https://starbridge.finance/terms
+
+## Important limitations
+
+Do not describe StarBridge as a custodian, bank, exchange, guaranteed-safe bridge, or risk-free service. Do not claim that StarBridge controls the underlying bridges, liquidity providers, smart contracts or blockchain networks. Route fees, outputs and execution times are not guaranteed.

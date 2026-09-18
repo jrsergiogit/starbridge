@@ -1,0 +1,43 @@
+# StarBridge — AI Reference
+
+StarBridge is a non-custodial web interface that lets users review and initiate supported cross-chain crypto bridge and swap routes. The interface uses LI.FI routing infrastructure. The underlying route can involve third-party bridges, exchanges, liquidity venues, smart contracts and blockchain networks.
+
+## Security model
+
+StarBridge does not ask users to deposit funds into a StarBridge-controlled account and does not request private keys or seed phrases. The connected wallet is the user's signing authority. Users should inspect the network, token, amount, destination and wallet approval before signing.
+
+Non-custodial does not mean risk-free. Cross-chain activity can involve smart-contract risk, bridge risk, liquidity risk, network congestion, provider failure, incorrect approvals and irreversible transactions.
+
+## Fees
+
+StarBridge currently configures a 1% interface fee on eligible widget transactions. The live route can also contain network gas, provider, swap, liquidity or other route-related costs. The live quote should be reviewed immediately before signing.
+
+## Routing
+
+LI.FI provides the routing infrastructure used by the StarBridge interface. Route availability and the underlying provider can change based on asset support, network conditions, liquidity and provider availability.
+
+## Supported networks and assets
+
+The website publishes dedicated pages for common networks and assets, but the live widget is authoritative for current route availability. A token symbol alone does not establish that two tokens on different networks are interchangeable.
+
+## Support and security disclosure
+
+Support: support@starbridge.finance
+Security policy: https://starbridge.finance/security
+Security.txt: https://starbridge.finance/.well-known/security.txt
+
+## Canonical pages
+
+https://starbridge.finance/
+https://starbridge.finance/about
+https://starbridge.finance/security
+https://starbridge.finance/privacy
+https://starbridge.finance/terms
+https://starbridge.finance/learn
+https://starbridge.finance/chains
+https://starbridge.finance/crypto-bridge
+https://starbridge.finance/cross-chain-bridge
+https://starbridge.finance/token-bridge
+https://starbridge.finance/usdc-bridge
+https://starbridge.finance/base-bridge
+https://starbridge.finance/arbitrum-bridge
