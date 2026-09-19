@@ -28,13 +28,8 @@ export default function Bridge() {
 
       variant: (isCompact ? "compact" : "wide") as "compact" | "wide",
 
+      // Split mantém as abas Bridge + Swap
       subvariant: "split" as const,
-
-      // Mantém o widget no modo Bridge quando estiver
-      // usando o layout split.
-      subvariantOptions: {
-        split: "bridge" as const,
-      },
 
       exchanges: {
         deny: ["nordstern"],
