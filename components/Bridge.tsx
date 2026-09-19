@@ -26,28 +26,31 @@ export default function Bridge() {
     () => ({
       appearance: "dark" as const,
 
-      // Desktop: wide layout with the chain/network panel beside the form.
-      // Mobile/tablet: compact layout.
       variant: (isCompact ? "compact" : "wide") as "compact" | "wide",
 
-      // Split navigation keeps Bridge + Swap available in the same widget.
-      // Do not force subvariantOptions here, otherwise the widget is locked
-      // into Bridge or Swap and the other tab disappears.
       subvariant: "split" as const,
 
-      // Keep Nordstern blocked because its routes are currently reverting.
+      // Mantém o widget no modo Bridge quando estiver
+      // usando o layout split.
+      subvariantOptions: {
+        split: "bridge" as const,
+      },
+
       exchanges: {
         deny: ["nordstern"],
       },
 
       theme: {
         palette: {
-          primary: { main: "#8B5CF6" },
+          primary: {
+            main: "#8B5CF6",
+          },
           background: {
             paper: "#121215",
             default: "#09090b",
           },
         },
+
         container: {
           border: "none",
           borderRadius: "22px",
@@ -56,6 +59,7 @@ export default function Bridge() {
           maxWidth: "100%",
           maxHeight: 720,
         },
+
         typography: {
           fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
         },
