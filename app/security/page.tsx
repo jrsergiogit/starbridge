@@ -59,9 +59,10 @@ export default function SecurityPage() {
         <article>
           <h2>Fee transparency</h2>
           <p>
-            StarBridge does not add a separate interface fee. The final route may
-            include network gas, provider, swap, liquidity or other route-related
-            costs shown by the live quote.
+            StarBridge applies a 1% interface fee on transactions routed through
+            the platform, shown as part of the live quote before signing. The
+            final route may also include network gas, provider, swap, liquidity
+            or other route-related costs.
           </p>
         </article>
         <article>

@@ -31,6 +31,12 @@ export default function Bridge() {
       // Split mantém as abas Bridge + Swap
       subvariant: "split" as const,
 
+      // Taxa de 1% cobrada pela integradora (StarBridge) em cada transação.
+      // Requer que a carteira/integrator "BridgeSaver" esteja habilitada
+      // para coleta de fees no painel da LI.FI (portal.li.fi), senão a
+      // taxa não é efetivamente cobrada mesmo estando configurada aqui.
+      fee: 0.01,
+
       exchanges: {
         deny: ["nordstern"],
       },
