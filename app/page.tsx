@@ -48,9 +48,16 @@ const trustItems = [
   },
   {
     number: "03",
-    title: "Live execution",
-    text: "Review the current route, output, fees and transaction details before signing.",
+    title: "You approve each action",
+    text: "Review the route and transaction details in your wallet before anything is executed.",
   },
+];
+
+const quickTrust = [
+  "No account",
+  "No seed phrase",
+  "Non-custodial",
+  "Review before signing",
 ];
 
 export default function Home() {
@@ -60,19 +67,28 @@ export default function Home() {
         <div className="homeHeroContent">
           <div className="homeEyebrow">
             <span />
-            CROSS-CHAIN BRIDGING &amp; SWAP
+            CROSS-CHAIN BRIDGE &amp; SWAP
           </div>
 
           <h1>
-            Move assets.
+            Bridge crypto.
             <br />
-            <span>Any chain.</span>
+            <span>Keep control.</span>
           </h1>
 
           <p className="homeLead">
-            A simple, non-custodial interface for bridging and swapping
-            supported digital assets across blockchain networks.
+            Move supported assets across blockchain networks using LI.FI
+            routing. StarBridge never holds your funds or private keys.
           </p>
+
+          <div className="homeQuickTrust" aria-label="StarBridge trust highlights">
+            {quickTrust.map((item) => (
+              <span key={item}>
+                <i aria-hidden="true">✓</i>
+                {item}
+              </span>
+            ))}
+          </div>
 
           <div className="homeTrust">
             {trustItems.map((item) => (
@@ -96,16 +112,33 @@ export default function Home() {
           <div className="homeWidgetCard">
             <div className="homeWidgetTop">
               <div>
-                <span className="homeWidgetLabel">MOVE ASSETS</span>
+                <span className="homeWidgetLabel">NON-CUSTODIAL CROSS-CHAIN ROUTING</span>
                 <h2>Bridge or Swap</h2>
-                <p>Choose a route and review it before signing.</p>
+                <p>Connect your wallet to compare available routes.</p>
               </div>
 
-              <div className="homeLifi">
-                <small>Powered by</small>
+              <a
+                className="homeLifi"
+                href="https://li.fi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit LI.FI"
+              >
+                <small>Routing powered by</small>
                 <strong>
                   <i>◆</i> LI.FI
                 </strong>
+              </a>
+            </div>
+
+            <div className="homeConnectIntro">
+              <span className="homeShield" aria-hidden="true">◇</span>
+              <div>
+                <strong>Connect without moving funds</strong>
+                <p>
+                  Connecting alone does not move funds or execute a transaction.
+                  You review and approve each action in your wallet.
+                </p>
               </div>
             </div>
 
@@ -113,9 +146,11 @@ export default function Home() {
 
             <div className="homeWidgetBottom">
               <span className="homeLiveDot" />
-              Live route availability
-              <b>•</b>
               Non-custodial
+              <b>•</b>
+              <Link href="/security">Security</Link>
+              <b>•</b>
+              Live route availability
             </div>
           </div>
         </div>
@@ -124,18 +159,18 @@ export default function Home() {
       <section className="homeTrustBar">
         <div>
           <span>01</span>
-          <strong>Your wallet</strong>
-          <p>Connect your own wallet and retain control of your assets.</p>
+          <strong>Connect</strong>
+          <p>Connect your own wallet. Your assets remain under your control.</p>
         </div>
         <div>
           <span>02</span>
-          <strong>Route selection</strong>
-          <p>Available routes are provided through LI.FI infrastructure.</p>
+          <strong>Review</strong>
+          <p>Choose the route and review the current transaction details.</p>
         </div>
         <div>
           <span>03</span>
-          <strong>Transaction signing</strong>
-          <p>Review the transaction and approve it directly in your wallet.</p>
+          <strong>Approve</strong>
+          <p>Approve the requested action directly in your connected wallet.</p>
         </div>
       </section>
 

@@ -2580,3 +2580,206 @@ th{
     font-size:13px;
   }
 }
+
+/* =========================================================
+   STARBRIDGE — TRUST-FIRST CONVERSION PASS
+   UI-only layer. Bridge / LI.FI configuration is untouched.
+   ========================================================= */
+
+.homeQuickTrust{
+  max-width:560px;
+  margin-top:22px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 15px;
+}
+
+.homeQuickTrust span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#a8a9b5;
+  font-size:11px;
+  line-height:1.4;
+  white-space:nowrap;
+}
+
+.homeQuickTrust i{
+  color:#58dea4;
+  font-size:10px;
+  font-style:normal;
+  font-weight:700;
+}
+
+.homeTrust{
+  margin-top:31px;
+}
+
+.homeLifi{
+  border-radius:9px;
+  padding:5px 6px;
+  transition:background .18s ease, transform .18s ease;
+}
+
+.homeLifi:hover{
+  background:rgba(255,255,255,.035);
+  transform:translateY(-1px);
+}
+
+.homeConnectIntro{
+  display:grid;
+  grid-template-columns:30px 1fr;
+  gap:10px;
+  margin:0 0 13px;
+  padding:11px 12px;
+  border:1px solid rgba(81,213,157,.13);
+  border-radius:12px;
+  background:linear-gradient(135deg,rgba(38,174,121,.055),rgba(105,79,255,.025));
+}
+
+.homeShield{
+  width:28px;
+  height:28px;
+  border:1px solid rgba(80,222,164,.24);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#55dda4;
+  font-size:13px;
+  line-height:1;
+}
+
+.homeConnectIntro strong{
+  display:block;
+  margin:1px 0 3px;
+  color:#e7f7ef;
+  font-size:11px;
+  font-weight:650;
+}
+
+.homeConnectIntro p{
+  margin:0;
+  color:#858b92;
+  font-size:10px;
+  line-height:1.55;
+}
+
+.homeWidgetBottom a{
+  color:#898a96;
+  text-decoration:none;
+  transition:color .18s ease;
+}
+
+.homeWidgetBottom a:hover{
+  color:#b9a1ff;
+}
+
+@media (max-width:760px){
+  /* Remove the content wrapper from mobile layout so the bridge can sit
+     immediately after the core value proposition without touching Bridge.tsx. */
+  .homeHero{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    padding-top:38px;
+  }
+
+  .homeHeroContent{
+    display:contents;
+  }
+
+  .homeEyebrow{
+    order:1;
+  }
+
+  .homeHero h1{
+    order:2;
+    margin-top:17px;
+    margin-bottom:17px;
+  }
+
+  .homeLead{
+    order:3;
+  }
+
+  .homeQuickTrust{
+    order:4;
+    margin-top:18px;
+    margin-bottom:25px;
+    gap:7px 13px;
+  }
+
+  .homeWidgetColumn{
+    order:5;
+    margin-bottom:31px;
+  }
+
+  .homeTrust{
+    order:6;
+    width:100%;
+    max-width:none;
+    margin-top:0;
+  }
+
+  .homeTrustNote{
+    order:7;
+    margin-top:15px;
+  }
+
+  .homeQuickTrust span{
+    font-size:10px;
+  }
+
+  .homeWidgetCard{
+    min-height:0;
+  }
+
+  .homeWidgetCard .lifi-widget-wrap{
+    min-height:500px;
+  }
+
+  .homeWidgetTop{
+    margin-bottom:12px;
+  }
+
+  .homeWidgetTop p{
+    max-width:220px;
+  }
+
+  .homeLifi small{
+    font-size:8px;
+  }
+
+  .homeConnectIntro{
+    margin-bottom:10px;
+  }
+
+  .homeConnectIntro p{
+    font-size:11px;
+  }
+
+  .homeWidgetBottom{
+    flex-wrap:wrap;
+    line-height:1.5;
+  }
+}
+
+@media (max-width:390px){
+  .homeQuickTrust{
+    gap:7px 11px;
+  }
+
+  .homeQuickTrust span{
+    white-space:normal;
+  }
+
+  .homeConnectIntro{
+    grid-template-columns:27px 1fr;
+    padding:10px;
+  }
+
+  .homeShield{
+    width:25px;
+    height:25px;
+  }
+}
