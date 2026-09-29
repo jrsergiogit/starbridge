@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Bridge from "@/components/Bridge";
+import BridgeEvents from "@/components/BridgeEvents";
 import Footer from "@/components/Footer";
 
 const popularPages = [
@@ -81,7 +82,10 @@ export default function Home() {
             routing. StarBridge never holds your funds or private keys.
           </p>
 
-          <div className="homeQuickTrust" aria-label="StarBridge trust highlights">
+          <div
+            className="homeQuickTrust"
+            aria-label="StarBridge trust highlights"
+          >
             {quickTrust.map((item) => (
               <span key={item}>
                 <i aria-hidden="true">✓</i>
@@ -112,7 +116,9 @@ export default function Home() {
           <div className="homeWidgetCard">
             <div className="homeWidgetTop">
               <div>
-                <span className="homeWidgetLabel">NON-CUSTODIAL CROSS-CHAIN ROUTING</span>
+                <span className="homeWidgetLabel">
+                  NON-CUSTODIAL CROSS-CHAIN ROUTING
+                </span>
                 <h2>Bridge or Swap</h2>
                 <p>Connect your wallet to compare available routes.</p>
               </div>
@@ -132,7 +138,9 @@ export default function Home() {
             </div>
 
             <div className="homeConnectIntro">
-              <span className="homeShield" aria-hidden="true">◇</span>
+              <span className="homeShield" aria-hidden="true">
+                ◇
+              </span>
               <div>
                 <strong>Connect without moving funds</strong>
                 <p>
@@ -143,6 +151,7 @@ export default function Home() {
             </div>
 
             <Bridge />
+            <BridgeEvents />
 
             <div className="homeWidgetBottom">
               <span className="homeLiveDot" />
@@ -162,11 +171,13 @@ export default function Home() {
           <strong>Connect</strong>
           <p>Connect your own wallet. Your assets remain under your control.</p>
         </div>
+
         <div>
           <span>02</span>
           <strong>Review</strong>
           <p>Choose the route and review the current transaction details.</p>
         </div>
+
         <div>
           <span>03</span>
           <strong>Approve</strong>
@@ -177,22 +188,32 @@ export default function Home() {
       <section className="homeAbout">
         <div className="homeAboutMain">
           <span className="homeSectionLabel">HOW STARBRIDGE WORKS</span>
+
           <h2>
             One interface.
             <br />
             <span>Multiple networks.</span>
           </h2>
+
           <p>
             StarBridge brings supported cross-chain bridge and swap routes into
-            one interface. Route availability, quotes, fees and execution
-            times depend on the selected assets, networks, liquidity and
-            underlying providers.
+            one interface. Route availability, quotes, fees and execution times
+            depend on the selected assets, networks, liquidity and underlying
+            providers.
           </p>
 
           <div className="homeAboutLinks">
-            <Link href="/chains">Supported chains <span>→</span></Link>
-            <Link href="/security">Security <span>→</span></Link>
-            <Link href="/learn">Learn <span>→</span></Link>
+            <Link href="/chains">
+              Supported chains <span>→</span>
+            </Link>
+
+            <Link href="/security">
+              Security <span>→</span>
+            </Link>
+
+            <Link href="/learn">
+              Learn <span>→</span>
+            </Link>
           </div>
         </div>
 
@@ -201,10 +222,12 @@ export default function Home() {
             <span>BRIDGE</span>
             <p>Move supported assets between compatible networks.</p>
           </div>
+
           <div className="homeSideItem">
             <span>SWAP</span>
             <p>Exchange supported tokens using available routes.</p>
           </div>
+
           <div className="homeSideItem">
             <span>CONTROL</span>
             <p>Transactions are approved by you in your connected wallet.</p>
@@ -218,7 +241,10 @@ export default function Home() {
             <span className="homeSectionLabel">EXPLORE</span>
             <h2>Popular bridge topics</h2>
           </div>
-          <Link href="/learn">View all guides <span>→</span></Link>
+
+          <Link href="/learn">
+            View all guides <span>→</span>
+          </Link>
         </div>
 
         <div className="homeRoutesGrid">
