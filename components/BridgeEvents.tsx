@@ -1,8 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useAccount } from "wagmi";
+import { useEffect } from "react";
 import { useWidgetEvents, WidgetEvent } from "@lifi/widget";
+import {
+  useWalletManagementEvents,
+  WalletManagementEvent,
+} from "@lifi/wallet-management";
 import type { Route } from "@lifi/sdk";
 
 const GOOGLE_ADS_WALLET_CONNECTED =
@@ -18,12 +21,10 @@ type GoogleAdsGtag = (
 
 export default function BridgeEvents() {
   const widgetEvents = useWidgetEvents();
-  const { isConnected } = useAccount();
-
-  const wasConnected = useRef(false);
+  const walletEvents = useWalletManagementEvents();
 
   useEffect(() => {
-    if (isConnected && !wasConnected.current) {
+    const onWalletConnected = () => {
       console.log("🔗 STARBRIDGE: Wallet connected");
 
       try {
@@ -31,42 +32,58 @@ export default function BridgeEvents() {
           "sb_google_ads_wallet_connected_sent"
         );
 
-        if (alreadySent !== "1") {
-          const gtag = (
-            window as Window & {
-              gtag?: GoogleAdsGtag;
-            }
-          ).gtag;
-
-          if (typeof gtag === "function") {
-            gtag("event", "conversion", {
-              send_to: GOOGLE_ADS_WALLET_CONNECTED,
-            });
-
-            sessionStorage.setItem(
-              "sb_google_ads_wallet_connected_sent",
-              "1"
-            );
-
-            console.log(
-              "✅ STARBRIDGE: Google Ads Wallet Connected conversion sent"
-            );
-          } else {
-            console.warn(
-              "⚠️ STARBRIDGE: Google Ads gtag is not available yet"
-            );
-          }
+        if (alreadySent === "1") {
+          console.log(
+            "ℹ️ STARBRIDGE: Wallet conversion already sent this session"
+          );
+          return;
         }
+
+        const gtag = (
+          window as Window & {
+            gtag?: GoogleAdsGtag;
+          }
+        ).gtag;
+
+        if (typeof gtag !== "function") {
+          console.warn(
+            "⚠️ STARBRIDGE: Google Ads gtag is not available yet"
+          );
+          return;
+        }
+
+        gtag("event", "conversion", {
+          send_to: GOOGLE_ADS_WALLET_CONNECTED,
+        });
+
+        sessionStorage.setItem(
+          "sb_google_ads_wallet_connected_sent",
+          "1"
+        );
+
+        console.log(
+          "✅ STARBRIDGE: Google Ads Wallet Connected conversion sent"
+        );
       } catch (error) {
         console.error(
           "❌ STARBRIDGE: Google Ads conversion error:",
           error
         );
       }
-    }
+    };
 
-    wasConnected.current = isConnected;
-  }, [isConnected]);
+    walletEvents.on(
+      WalletManagementEvent.WalletConnected,
+      onWalletConnected
+    );
+
+    return () => {
+      walletEvents.off(
+        WalletManagementEvent.WalletConnected,
+        onWalletConnected
+      );
+    };
+  }, [walletEvents]);
 
   useEffect(() => {
     const onRouteExecutionCompleted = async (route: Route) => {
