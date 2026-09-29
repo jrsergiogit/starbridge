@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
@@ -110,8 +111,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* Google Ads base tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-10796225601"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-10796225601');
+          `}
+        </Script>
+
         <Navbar />
+
         {children}
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
