@@ -59,7 +59,7 @@ export default async function LearnArticlePage({ params }: Props) {
         <h1>{article.title}.</h1>
         <p>{article.description}</p>
       </section>
-      <section className="seoContentGrid">
+      <section className="seoProse">
         {article.sections.map(([heading, body]) => (
           <article key={heading}>
             <h2>{heading}</h2>

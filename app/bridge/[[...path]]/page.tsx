@@ -14,7 +14,7 @@ import {
   isIndexableChainPair,
   isIndexableTokenPage,
 } from "@/lib/seo-data";
-import { CHAIN_INFO, routeNotes } from "@/lib/chain-info";
+import { routeNotes } from "@/lib/chain-info";
 
 export const dynamicParams = false;
 
@@ -205,32 +205,10 @@ export default async function Page({ params }: Props) {
             {from.name} to {to.name}. Availability, fees, liquidity and
             execution estimates can change with network conditions.
           </p>
+                  <a className="jumpLink" href="#bridge">Go to the bridge ↓</a>
         </section>
 
-        <section className="seoBridgeWidget">
-          <div className="bridgeShell">
-            <div className="bridgeHeader">
-              <div>
-                <h2>Bridge Assets</h2>
-                <p>Select tokens and networks to bridge</p>
-              </div>
-
-              <div className="poweredBy">
-                <small>Powered by</small>
-                <b>
-                  <em>◆</em> LI.FI
-                </b>
-              </div>
-            </div>
-
-            <Bridge
-              fromChain={CHAIN_INFO[from.slug]?.id}
-              toChain={CHAIN_INFO[to.slug]?.id}
-            />
-          </div>
-        </section>
-
-        <section className="seoContentGrid">
+                <section className="seoProse">
           <article>
             <h2>
               Bridge from {from.name} to {to.name}
@@ -276,13 +254,33 @@ export default async function Page({ params }: Props) {
           </article>
         </section>
 
-        <section className="seoContentGrid">
+        <section className="seoProse">
           {routeNotes(from, to).map((note) => (
             <article key={note.title}>
               <h2>{note.title}</h2>
               <p>{note.body}</p>
             </article>
           ))}
+        </section>
+
+        <section className="seoBridgeWidget" id="bridge">
+          <div className="bridgeShell">
+            <div className="bridgeHeader">
+              <div>
+                <h2>Bridge Assets</h2>
+                <p>Select tokens and networks to bridge</p>
+              </div>
+
+              <div className="poweredBy">
+                <small>Powered by</small>
+                <b>
+                  <em>◆</em> LI.FI
+                </b>
+              </div>
+            </div>
+
+            <Bridge />
+          </div>
         </section>
 
         <section className="infoStrip">
@@ -362,32 +360,10 @@ export default async function Page({ params }: Props) {
             {asset.symbol}) from {from.name} to {to.name}. The bridge interface
             provides the current route and quote for supported combinations.
           </p>
+                  <a className="jumpLink" href="#bridge">Go to the bridge ↓</a>
         </section>
 
-        <section className="seoBridgeWidget">
-          <div className="bridgeShell">
-            <div className="bridgeHeader">
-              <div>
-                <h2>Bridge Assets</h2>
-                <p>Select tokens and networks to bridge</p>
-              </div>
-
-              <div className="poweredBy">
-                <small>Powered by</small>
-                <b>
-                  <em>◆</em> LI.FI
-                </b>
-              </div>
-            </div>
-
-            <Bridge
-              fromChain={CHAIN_INFO[from.slug]?.id}
-              toChain={CHAIN_INFO[to.slug]?.id}
-            />
-          </div>
-        </section>
-
-        <section className="seoContentGrid">
+                <section className="seoProse">
           <article>
             <h2>
               {asset.symbol} from {from.name} to {to.name}
@@ -433,13 +409,33 @@ export default async function Page({ params }: Props) {
           </article>
         </section>
 
-        <section className="seoContentGrid">
+        <section className="seoProse">
           {routeNotes(from, to).map((note) => (
             <article key={note.title}>
               <h2>{note.title}</h2>
               <p>{note.body}</p>
             </article>
           ))}
+        </section>
+
+        <section className="seoBridgeWidget" id="bridge">
+          <div className="bridgeShell">
+            <div className="bridgeHeader">
+              <div>
+                <h2>Bridge Assets</h2>
+                <p>Select tokens and networks to bridge</p>
+              </div>
+
+              <div className="poweredBy">
+                <small>Powered by</small>
+                <b>
+                  <em>◆</em> LI.FI
+                </b>
+              </div>
+            </div>
+
+            <Bridge />
+          </div>
         </section>
 
         <section className="infoStrip">

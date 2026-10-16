@@ -8,13 +8,7 @@ const LiFiWidget = dynamic(
   { ssr: false }
 );
 
-export default function Bridge({
-  fromChain,
-  toChain,
-}: {
-  fromChain?: number;
-  toChain?: number;
-} = {}) {
+export default function Bridge() {
   const [isCompact, setIsCompact] = useState(true);
 
   useEffect(() => {
@@ -42,16 +36,6 @@ export default function Bridge({
       // para coleta de fees no painel da LI.FI (portal.li.fi), senão a
       // taxa não é efetivamente cobrada mesmo estando configurada aqui.
       fee: 0.01,
-
-      // Optional: pre-select networks on route landing pages.
-      ...(fromChain ? { fromChain } : {}),
-      ...(toChain ? { toChain } : {}),
-
-      // On route landing pages the Swap tab would force both ends onto the
-      // same network, so open the Bridge tab instead.
-      ...(fromChain || toChain
-        ? { subvariantOptions: { split: "bridge" as const } }
-        : {}),
 
       exchanges: {
         deny: ["nordstern"],
@@ -82,13 +66,13 @@ export default function Bridge({
         },
       },
     }),
-    [isCompact, fromChain, toChain]
+    [isCompact]
   );
 
   return (
     <section className="lifi-widget-wrap bridge-default">
       <LiFiWidget
-        key={`${isCompact ? "compact" : "wide"}-${fromChain ?? ""}-${toChain ?? ""}`}
+        key={isCompact ? "compact" : "wide"}
         integrator="BridgeSaver"
         config={config}
       />

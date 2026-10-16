@@ -45,9 +45,19 @@ export default function SeoBridgePage({ data }: { data: SeoPageData }) {
         <div className="eyebrow">{data.eyebrow}</div>
         <h1>{data.heading}</h1>
         <p>{data.intro}</p>
+        <a className="jumpLink" href="#bridge">Go to the bridge ↓</a>
       </section>
 
-      <section className="seoBridgeWidget">
+      <section className="seoProse">
+        {data.sections.map((section) => (
+          <article key={section.title}>
+            <h2>{section.title}</h2>
+            <p>{section.body}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="seoBridgeWidget" id="bridge">
         <div className="bridgeShell">
           <div className="bridgeHeader">
             <div>
@@ -58,15 +68,6 @@ export default function SeoBridgePage({ data }: { data: SeoPageData }) {
           </div>
           <Bridge />
         </div>
-      </section>
-
-      <section className="seoContentGrid">
-        {data.sections.map((section) => (
-          <article key={section.title}>
-            <h2>{section.title}</h2>
-            <p>{section.body}</p>
-          </article>
-        ))}
       </section>
 
       <section className="infoStrip">
