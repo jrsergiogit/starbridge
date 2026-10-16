@@ -3,7 +3,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy | StarBridge",
+  title: "Privacy",
   description: "StarBridge privacy information for the website, wallet interface and support communications.",
   alternates: { canonical: "/privacy" },
 };

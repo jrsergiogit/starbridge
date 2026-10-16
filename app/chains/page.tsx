@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Footer from "@/components/Footer";
+import { CORE_CHAINS, chainBySlug, chainPairUrl, tokenPairUrl, CORE_TOKENS, CORE_TOKEN_CHAINS } from "@/lib/seo-data";
 
 export const metadata: Metadata = {
   title: "Supported Chains",
-  description: "Explore blockchain networks supported by StarBridge."
+  description: "Explore blockchain networks supported by StarBridge and jump to popular cross-chain bridge routes between Ethereum, Arbitrum, Base, Optimism, Polygon, BNB Chain, Avalanche and Solana.",
+  alternates: { canonical: "/chains" },
 };
 
 const chains = [
@@ -48,6 +51,52 @@ export default function Chains() {
             <span className="chainArrow">→</span>
           </article>
         ))}
+      </section>
+
+      <section className="seoContentGrid">
+        {CORE_CHAINS.map((fromSlug) => {
+          const from = chainBySlug(fromSlug);
+          if (!from) return null;
+          return (
+            <article key={fromSlug}>
+              <h2>Bridge from {from.name}</h2>
+              <p>
+                {CORE_CHAINS.filter((s) => s !== fromSlug).map((toSlug, i) => {
+                  const to = chainBySlug(toSlug);
+                  if (!to) return null;
+                  return (
+                    <span key={toSlug}>
+                      {i > 0 ? " · " : ""}
+                      <Link href={chainPairUrl(fromSlug, toSlug)}>
+                        {from.name} to {to.name}
+                      </Link>
+                    </span>
+                  );
+                })}
+              </p>
+            </article>
+          );
+        })}
+      </section>
+
+      <section className="seoContentGrid">
+        <article>
+          <h2>Popular stablecoin routes</h2>
+          <p>
+            {CORE_TOKENS.flatMap((token) =>
+              CORE_TOKEN_CHAINS.flatMap((f) =>
+                CORE_TOKEN_CHAINS.filter((t) => t !== f).map((t) => ({ token, f, t })),
+              ),
+            ).map(({ token, f, t }, i) => (
+              <span key={`${token}-${f}-${t}`}>
+                {i > 0 ? " · " : ""}
+                <Link href={tokenPairUrl(token, f, t)}>
+                  {token.toUpperCase()} {chainBySlug(f)?.name} to {chainBySlug(t)?.name}
+                </Link>
+              </span>
+            ))}
+          </p>
+        </article>
       </section>
 
       <div className="infoStrip">

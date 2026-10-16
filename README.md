@@ -13,13 +13,13 @@ StarBridge is a non-custodial web interface for reviewing and initiating support
 
 ## Security
 
-See [`SECURITY.md`](./SECURITY.md) and the live security page at https://starbridge.finance/security. Security reports can be sent to support@starbridge.finance.
+See [`SECURITY.md`](./SECURITY.md) and the live security page at https://www.starbridge.finance/security. Security reports can be sent to support@starbridge.finance.
 
 The project also publishes machine-readable product information at:
 
-- https://starbridge.finance/llms.txt
-- https://starbridge.finance/llms-full.txt
-- https://starbridge.finance/.well-known/security.txt
+- https://www.starbridge.finance/llms.txt
+- https://www.starbridge.finance/llms-full.txt
+- https://www.starbridge.finance/.well-known/security.txt
 
 ## Architecture
 

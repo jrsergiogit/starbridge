@@ -11,7 +11,10 @@ import {
   tokenPairUrl,
   SEO_CHAINS,
   SEO_TOKENS,
+  isIndexableChainPair,
+  isIndexableTokenPage,
 } from "@/lib/seo-data";
+import { CHAIN_INFO, routeNotes } from "@/lib/chain-info";
 
 export const dynamicParams = false;
 
@@ -71,7 +74,7 @@ export async function generateMetadata({
     const { from, to } = data;
     const title = `${from.name} to ${to.name} Bridge`;
     const description = `Bridge supported crypto assets from ${from.name} to ${to.name} with StarBridge. Check live routes, fees and availability before signing.`;
-    const url = `https://starbridge.finance${chainPairUrl(
+    const url = `https://www.starbridge.finance${chainPairUrl(
       from.slug,
       to.slug
     )}`;
@@ -82,6 +85,11 @@ export async function generateMetadata({
       alternates: {
         canonical: url,
       },
+      // Only routes with real search demand are indexed; the rest stay
+      // reachable for users but are kept out of the index.
+      robots: isIndexableChainPair(from.slug, to.slug)
+        ? { index: true, follow: true }
+        : { index: false, follow: true },
       openGraph: {
         title: `${title} | StarBridge`,
         description,
@@ -108,7 +116,7 @@ export async function generateMetadata({
     const { token, from, to } = data;
     const title = `${token.symbol} Bridge: ${from.name} to ${to.name}`;
     const description = `Check the live ${token.symbol} bridge route from ${from.name} to ${to.name} with StarBridge. Review availability, estimated output and fees before signing.`;
-    const url = `https://starbridge.finance${tokenPairUrl(
+    const url = `https://www.starbridge.finance${tokenPairUrl(
       token.slug,
       from.slug,
       to.slug
@@ -120,6 +128,9 @@ export async function generateMetadata({
       alternates: {
         canonical: url,
       },
+      robots: isIndexableTokenPage(token.slug, from.slug, to.slug)
+        ? { index: true, follow: true }
+        : { index: false, follow: true },
       openGraph: {
         title: `${title} | StarBridge`,
         description,
@@ -139,11 +150,11 @@ export async function generateMetadata({
   }
 
   return {
-    title: "Cross-Chain Bridge | StarBridge",
+    title: "Cross-Chain Bridge",
     description:
       "Bridge supported digital assets across blockchain networks with StarBridge.",
     alternates: {
-      canonical: "https://starbridge.finance/bridge",
+      canonical: "https://www.starbridge.finance/bridge",
     },
   };
 }
@@ -162,7 +173,7 @@ export default async function Page({ params }: Props) {
       (c) => c.slug !== from.slug && c.slug !== to.slug
     ).slice(0, 6);
 
-    const canonical = `https://starbridge.finance${chainPairUrl(
+    const canonical = `https://www.starbridge.finance${chainPairUrl(
       from.slug,
       to.slug
     )}`;
@@ -176,7 +187,7 @@ export default async function Page({ params }: Props) {
       isPartOf: {
         "@type": "WebSite",
         name: "StarBridge",
-        url: "https://starbridge.finance/",
+        url: "https://www.starbridge.finance/",
       },
     };
 
@@ -212,7 +223,10 @@ export default async function Page({ params }: Props) {
               </div>
             </div>
 
-            <Bridge />
+            <Bridge
+              fromChain={CHAIN_INFO[from.slug]?.id}
+              toChain={CHAIN_INFO[to.slug]?.id}
+            />
           </div>
         </section>
 
@@ -262,6 +276,15 @@ export default async function Page({ params }: Props) {
           </article>
         </section>
 
+        <section className="seoContentGrid">
+          {routeNotes(from, to).map((note) => (
+            <article key={note.title}>
+              <h2>{note.title}</h2>
+              <p>{note.body}</p>
+            </article>
+          ))}
+        </section>
+
         <section className="infoStrip">
           <strong>Explore more bridge routes</strong>
 
@@ -274,6 +297,12 @@ export default async function Page({ params }: Props) {
                 </Link>
               </span>
             ))}
+            {" · "}
+            <Link href={chainPairUrl(to.slug, from.slug)}>
+              {to.name} to {from.name}
+            </Link>
+            {" · "}
+            <Link href="/chains">All supported networks</Link>
           </span>
         </section>
 
@@ -296,7 +325,7 @@ export default async function Page({ params }: Props) {
 
     const { token: asset, from, to } = data;
 
-    const canonical = `https://starbridge.finance${tokenPairUrl(
+    const canonical = `https://www.starbridge.finance${tokenPairUrl(
       asset.slug,
       from.slug,
       to.slug
@@ -315,7 +344,7 @@ export default async function Page({ params }: Props) {
       isPartOf: {
         "@type": "WebSite",
         name: "StarBridge",
-        url: "https://starbridge.finance/",
+        url: "https://www.starbridge.finance/",
       },
     };
 
@@ -351,7 +380,10 @@ export default async function Page({ params }: Props) {
               </div>
             </div>
 
-            <Bridge />
+            <Bridge
+              fromChain={CHAIN_INFO[from.slug]?.id}
+              toChain={CHAIN_INFO[to.slug]?.id}
+            />
           </div>
         </section>
 
@@ -399,6 +431,15 @@ export default async function Page({ params }: Props) {
               destination.
             </p>
           </article>
+        </section>
+
+        <section className="seoContentGrid">
+          {routeNotes(from, to).map((note) => (
+            <article key={note.title}>
+              <h2>{note.title}</h2>
+              <p>{note.body}</p>
+            </article>
+          ))}
         </section>
 
         <section className="infoStrip">

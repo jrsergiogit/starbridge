@@ -10,4 +10,4 @@ Google will provide a unique filename/token. Replace the placeholder `public/goo
 with the exact file Google gives you (including the exact filename/content), deploy, and click Verify.
 
 Then submit:
-https://starbridge.finance/sitemap.xml
+https://www.starbridge.finance/sitemap.xml

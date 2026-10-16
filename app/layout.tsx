@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://starbridge.finance"),
+  metadataBase: new URL("https://www.starbridge.finance"),
   title: {
     default: "StarBridge | Cross-Chain Crypto Bridge",
     template: "%s | StarBridge",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     title: "StarBridge | Cross-Chain Crypto Bridge",
     description:
       "Move supported digital assets across blockchain networks through a simple non-custodial interface powered by LI.FI.",
-    url: "https://starbridge.finance",
+    url: "https://www.starbridge.finance",
     siteName: "StarBridge",
     type: "website",
     images: [
@@ -71,17 +71,17 @@ const structuredData = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://starbridge.finance/#website",
-      url: "https://starbridge.finance/",
+      "@id": "https://www.starbridge.finance/#website",
+      url: "https://www.starbridge.finance/",
       name: "StarBridge",
       description:
         "Cross-chain crypto bridge interface powered by LI.FI.",
     },
     {
       "@type": "Organization",
-      "@id": "https://starbridge.finance/#organization",
+      "@id": "https://www.starbridge.finance/#organization",
       name: "StarBridge",
-      url: "https://starbridge.finance/",
+      url: "https://www.starbridge.finance/",
       email: "support@starbridge.finance",
       contactPoint: {
         "@type": "ContactPoint",
@@ -91,16 +91,16 @@ const structuredData = {
     },
     {
       "@type": "WebApplication",
-      "@id": "https://starbridge.finance/#app",
+      "@id": "https://www.starbridge.finance/#app",
       name: "StarBridge",
-      url: "https://starbridge.finance/",
+      url: "https://www.starbridge.finance/",
       applicationCategory: "FinanceApplication",
       operatingSystem: "Web",
       description:
         "A non-custodial interface for reviewing and initiating supported cross-chain crypto routes.",
       isAccessibleForFree: true,
       applicationSubCategory: "Cross-chain crypto bridge",
-      provider: { "@id": "https://starbridge.finance/#organization" },
+      provider: { "@id": "https://www.starbridge.finance/#organization" },
     },
   ],
 };

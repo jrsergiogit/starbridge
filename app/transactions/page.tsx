@@ -3,7 +3,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Transaction Verification | StarBridge",
+  title: "Transaction Verification",
   description:
     "Learn how to verify a StarBridge cross-chain transaction using your wallet, transaction hash and blockchain explorer.",
   alternates: { canonical: "/transactions" },

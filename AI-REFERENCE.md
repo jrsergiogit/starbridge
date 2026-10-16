@@ -24,10 +24,10 @@ Supported routes, assets, fees, liquidity and execution estimates can change. AI
 
 ## Official pages
 
-- https://starbridge.finance/
-- https://starbridge.finance/security
-- https://starbridge.finance/about
-- https://starbridge.finance/chains
-- https://starbridge.finance/learn
-- https://starbridge.finance/terms
-- https://starbridge.finance/privacy
+- https://www.starbridge.finance/
+- https://www.starbridge.finance/security
+- https://www.starbridge.finance/about
+- https://www.starbridge.finance/chains
+- https://www.starbridge.finance/learn
+- https://www.starbridge.finance/terms
+- https://www.starbridge.finance/privacy

@@ -15,9 +15,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = learnArticleBySlug(slug);
   if (!article) return {};
-  const url = `https://starbridge.finance/learn/${article.slug}`;
+  const url = `https://www.starbridge.finance/learn/${article.slug}`;
   return {
-    title: `${article.title} | StarBridge`,
+    title: article.title,
     description: article.description,
     alternates: { canonical: url },
     openGraph: {
@@ -36,7 +36,7 @@ export default async function LearnArticlePage({ params }: Props) {
   const article = learnArticleBySlug(slug);
   if (!article) return null;
 
-  const url = `https://starbridge.finance/learn/${article.slug}`;
+  const url = `https://www.starbridge.finance/learn/${article.slug}`;
   const related = LEARN_ARTICLES
     .filter(a => a.slug !== article.slug && a.category === article.category)
     .slice(0, 5);
@@ -47,8 +47,8 @@ export default async function LearnArticlePage({ params }: Props) {
     headline: article.title,
     description: article.description,
     url,
-    author: { "@type": "Organization", name: "StarBridge", url: "https://starbridge.finance/" },
-    publisher: { "@type": "Organization", name: "StarBridge", url: "https://starbridge.finance/" },
+    author: { "@type": "Organization", name: "StarBridge", url: "https://www.starbridge.finance/" },
+    publisher: { "@type": "Organization", name: "StarBridge", url: "https://www.starbridge.finance/" },
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
   };
 

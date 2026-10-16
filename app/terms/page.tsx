@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms | StarBridge",
+  title: "Terms",
   description: "Important terms and risk information for using the StarBridge cross-chain interface.",
   alternates: { canonical: "/terms" },
 };

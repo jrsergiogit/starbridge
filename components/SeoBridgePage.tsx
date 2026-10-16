@@ -23,7 +23,7 @@ export function seoMetadata(data: SeoPageData): Metadata {
     openGraph: {
       title: `${data.title} | StarBridge`,
       description: data.description,
-      url: `https://starbridge.finance/${data.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`,
+      url: `https://www.starbridge.finance/${data.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`,
       siteName: "StarBridge",
       type: "website",
       images: [

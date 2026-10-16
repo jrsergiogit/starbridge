@@ -3,7 +3,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Security | StarBridge",
+  title: "Security",
   description:
     "Learn how StarBridge handles wallet connections, transaction signing, routing, fees and security for cross-chain transfers.",
   alternates: { canonical: "/security" },

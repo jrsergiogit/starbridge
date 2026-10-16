@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Learn | Crypto Bridge Guides & Cross-Chain Education | StarBridge",
     description:
       "Practical guides and educational articles about crypto bridges, cross-chain transfers, fees, routes and supported networks.",
-    url: "https://starbridge.finance/learn",
+    url: "https://www.starbridge.finance/learn",
     siteName: "StarBridge",
     type: "website",
     images: [

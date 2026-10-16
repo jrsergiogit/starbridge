@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "About | StarBridge",
+  title: "About",
+  alternates: { canonical: "/about" },
   description:
     "Learn how StarBridge approaches cross-chain transfers, security, routing and user experience.",
 };

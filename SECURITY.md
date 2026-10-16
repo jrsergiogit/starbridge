@@ -29,5 +29,5 @@ Do not send seed phrases, private keys, passwords or wallet recovery secrets.
 
 ## Related resources
 
-- https://starbridge.finance/security
-- https://starbridge.finance/.well-known/security.txt
+- https://www.starbridge.finance/security
+- https://www.starbridge.finance/.well-known/security.txt

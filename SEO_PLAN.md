@@ -18,7 +18,7 @@ Landing pages:
 - /stargate-alternative
 
 Technical:
-- HTTPS canonical host: https://starbridge.finance
+- HTTPS canonical host: https://www.starbridge.finance
 - robots.txt allows crawling and points to sitemap
 - sitemap includes landing pages
 - page-specific titles/descriptions/canonicals

@@ -23,21 +23,21 @@ The website publishes dedicated pages for common networks and assets, but the li
 ## Support and security disclosure
 
 Support: support@starbridge.finance
-Security policy: https://starbridge.finance/security
-Security.txt: https://starbridge.finance/.well-known/security.txt
+Security policy: https://www.starbridge.finance/security
+Security.txt: https://www.starbridge.finance/.well-known/security.txt
 
 ## Canonical pages
 
-https://starbridge.finance/
-https://starbridge.finance/about
-https://starbridge.finance/security
-https://starbridge.finance/privacy
-https://starbridge.finance/terms
-https://starbridge.finance/learn
-https://starbridge.finance/chains
-https://starbridge.finance/crypto-bridge
-https://starbridge.finance/cross-chain-bridge
-https://starbridge.finance/token-bridge
-https://starbridge.finance/usdc-bridge
-https://starbridge.finance/base-bridge
-https://starbridge.finance/arbitrum-bridge
+https://www.starbridge.finance/
+https://www.starbridge.finance/about
+https://www.starbridge.finance/security
+https://www.starbridge.finance/privacy
+https://www.starbridge.finance/terms
+https://www.starbridge.finance/learn
+https://www.starbridge.finance/chains
+https://www.starbridge.finance/crypto-bridge
+https://www.starbridge.finance/cross-chain-bridge
+https://www.starbridge.finance/token-bridge
+https://www.starbridge.finance/usdc-bridge
+https://www.starbridge.finance/base-bridge
+https://www.starbridge.finance/arbitrum-bridge

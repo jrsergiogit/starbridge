@@ -1,15 +1,19 @@
 import type { MetadataRoute } from "next";
 import {
-  chainPairParams,
   chainPairUrl,
-  tokenPairParams,
+  indexableChainPairParams,
+  indexableTokenPairParams,
   tokenPairUrl,
 } from "@/lib/seo-data";
 import { LEARN_ARTICLES } from "@/lib/learn-data";
 
-const baseUrl = "https://starbridge.finance";
-const lastModified = new Date("2026-09-18T00:00:00.000Z");
+const baseUrl = "https://www.starbridge.finance";
+const lastModified = new Date("2026-10-15T00:00:00.000Z");
 
+/**
+ * Only pages meant to rank are listed. Route pages outside the curated core
+ * set still work for users but are noindex and intentionally left out.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const fixedPaths = [
     "/",
@@ -34,14 +38,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
   }));
 
-  const chainPages: MetadataRoute.Sitemap = chainPairParams().map(
+  const chainPages: MetadataRoute.Sitemap = indexableChainPairParams().map(
     ({ from, to }) => ({
       url: `${baseUrl}${chainPairUrl(from, to)}`,
       lastModified,
     }),
   );
 
-  const tokenPages: MetadataRoute.Sitemap = tokenPairParams().map(
+  const tokenPages: MetadataRoute.Sitemap = indexableTokenPairParams().map(
     ({ token, pair }) => {
       const [from, to] = pair.split("-to-");
       return {

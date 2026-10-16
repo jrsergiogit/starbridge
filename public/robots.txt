@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://starbridge.finance/sitemap.xml
+Sitemap: https://www.starbridge.finance/sitemap.xml
 
 # AI-readable product information
-# https://starbridge.finance/llms.txt
+# https://www.starbridge.finance/llms.txt

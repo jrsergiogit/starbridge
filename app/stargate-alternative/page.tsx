@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${data.title} | StarBridge`,
     description: data.description,
-    url: `https://starbridge.finance/stargate-alternative`,
+    url: `https://www.starbridge.finance/stargate-alternative`,
     siteName: "StarBridge",
     type: "website",
     images: [
