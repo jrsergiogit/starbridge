@@ -47,6 +47,12 @@ export default function Bridge({
       ...(fromChain ? { fromChain } : {}),
       ...(toChain ? { toChain } : {}),
 
+      // On route landing pages the Swap tab would force both ends onto the
+      // same network, so open the Bridge tab instead.
+      ...(fromChain || toChain
+        ? { subvariantOptions: { split: "bridge" as const } }
+        : {}),
+
       exchanges: {
         deny: ["nordstern"],
       },
