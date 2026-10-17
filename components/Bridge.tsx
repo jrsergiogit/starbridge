@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
+import { trackStarBridgeEvent } from "@/lib/analytics/tracker";
 
 const LiFiWidget = dynamic(
   () => import("@lifi/widget").then((module) => module.LiFiWidget),
@@ -10,6 +11,10 @@ const LiFiWidget = dynamic(
 
 export default function Bridge() {
   const [isCompact, setIsCompact] = useState(true);
+
+  useEffect(() => {
+    trackStarBridgeEvent("bridge_opened", { feature: "lifi_widget_view" });
+  }, []);
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 1199px)");

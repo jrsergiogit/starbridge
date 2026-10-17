@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import AnalyticsPageTracker from "@/components/analytics/AnalyticsPageTracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.starbridge.finance"),
@@ -127,6 +128,7 @@ export default function RootLayout({
         </Script>
 
         <Navbar />
+        <AnalyticsPageTracker />
 
         {children}
 

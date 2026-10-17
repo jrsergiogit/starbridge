@@ -7,6 +7,7 @@ import {
   WalletManagementEvent,
 } from "@lifi/wallet-management";
 import type { Route } from "@lifi/sdk";
+import { trackStarBridgeEvent } from "@/lib/analytics/tracker";
 
 const GOOGLE_ADS_WALLET_CONNECTED =
   "AW-10796225601/_uqSCLG2hYodEMGohZwo";
@@ -26,6 +27,7 @@ export default function BridgeEvents() {
   useEffect(() => {
     const onWalletConnected = () => {
       console.log("🔗 STARBRIDGE: Wallet connected");
+      trackStarBridgeEvent("wallet_connected");
 
       try {
         const alreadySent = sessionStorage.getItem(
@@ -88,6 +90,7 @@ export default function BridgeEvents() {
   useEffect(() => {
     const onRouteExecutionCompleted = async (route: Route) => {
       console.log("⭐ STARBRIDGE: Route completed!", route);
+      trackStarBridgeEvent("route_completed", { from_chain_id: String(route.fromChainId ?? ""), to_chain_id: String(route.toChainId ?? ""), transaction_type: Number(route.fromChainId) === Number(route.toChainId) ? "same_chain_or_swap" : "cross_chain" });
 
       try {
         console.log("📨 STARBRIDGE: Sending Telegram alert...");
