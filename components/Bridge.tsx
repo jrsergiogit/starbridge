@@ -11,20 +11,28 @@ const LiFiWidget = dynamic(
 
 export default function Bridge() {
   const [isCompact, setIsCompact] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     trackStarBridgeEvent("bridge_opened", { feature: "lifi_widget_view" });
   }, []);
 
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 1199px)");
+    const compactMedia = window.matchMedia("(max-width: 1199px)");
+    const mobileMedia = window.matchMedia("(max-width: 767px)");
 
-    const update = () => setIsCompact(media.matches);
+    const updateCompact = () => setIsCompact(compactMedia.matches);
+    const updateMobile = () => setIsMobile(mobileMedia.matches);
 
-    update();
-    media.addEventListener("change", update);
+    updateCompact();
+    updateMobile();
+    compactMedia.addEventListener("change", updateCompact);
+    mobileMedia.addEventListener("change", updateMobile);
 
-    return () => media.removeEventListener("change", update);
+    return () => {
+      compactMedia.removeEventListener("change", updateCompact);
+      mobileMedia.removeEventListener("change", updateMobile);
+    };
   }, []);
 
   const config = useMemo(
@@ -35,6 +43,11 @@ export default function Bridge() {
 
       // Split mantém as abas Bridge + Swap
       subvariant: "split" as const,
+
+      // Mobile: desativa rotas relayer/Permit2 como teste de compatibilidade
+      // com carteiras móveis que não apresentam o pedido de assinatura.
+      // Desktop permanece com o comportamento anterior.
+      useRelayerRoutes: !isMobile,
 
       // Taxa de 1% cobrada pela integradora (StarBridge) em cada transação.
       // Requer que a carteira/integrator "BridgeSaver" esteja habilitada
@@ -71,7 +84,7 @@ export default function Bridge() {
         },
       },
     }),
-    [isCompact]
+    [isCompact, isMobile]
   );
 
   return (
