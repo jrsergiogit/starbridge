@@ -2029,11 +2029,11 @@ canvas {
 .homeAbout{
   width:min(1240px, calc(100% - 64px));
   margin:0 auto;
-  padding:105px 0;
+  padding:76px 0;
   display:grid;
   grid-template-columns:minmax(0,1.25fr) minmax(260px,.55fr);
-  gap:120px;
-  border-bottom:1px solid rgba(255,255,255,.07);
+  gap:88px;
+  border-bottom:1px solid rgba(255,255,255,.045);
 }
 
 .homeAboutMain h2{
@@ -2112,7 +2112,7 @@ canvas {
 .homeRoutes{
   width:min(1240px, calc(100% - 64px));
   margin:0 auto;
-  padding:85px 0 100px;
+  padding:58px 0 68px;
 }
 
 .homeRoutesHeader{
@@ -2137,11 +2137,11 @@ canvas {
 
 .homeRouteCard{
   position:relative;
-  min-height:155px;
-  padding:23px;
-  border:1px solid rgba(255,255,255,.065);
-  border-radius:14px;
-  background:rgba(255,255,255,.016);
+  min-height:135px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.045);
+  border-radius:12px;
+  background:rgba(255,255,255,.009);
   text-decoration:none;
   transition:border-color .2s ease, background .2s ease, transform .2s ease;
 }

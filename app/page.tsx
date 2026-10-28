@@ -54,12 +54,6 @@ const trustItems = [
   },
 ];
 
-const quickTrust = [
-  "No account",
-  "No seed phrase",
-  "Non-custodial",
-  "Review before signing",
-];
 
 export default function Home() {
   return (
@@ -82,18 +76,6 @@ export default function Home() {
             routing. StarBridge never holds your funds or private keys.
           </p>
 
-          <div
-            className="homeQuickTrust"
-            aria-label="StarBridge trust highlights"
-          >
-            {quickTrust.map((item) => (
-              <span key={item}>
-                <i aria-hidden="true">✓</i>
-                {item}
-              </span>
-            ))}
-          </div>
-
           <div className="homeTrust">
             {trustItems.map((item) => (
               <div className="homeTrustItem" key={item.number}>
@@ -104,11 +86,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="homeTrustNote">
-            <span className="homeLiveDot" />
-            You approve every transaction from your own wallet.
           </div>
         </div>
 
@@ -136,20 +113,6 @@ export default function Home() {
                 </strong>
               </a>
             </div>
-
-            <div className="homeConnectIntro">
-              <span className="homeShield" aria-hidden="true">
-                ◇
-              </span>
-              <div>
-                <strong>Connect without moving funds</strong>
-                <p>
-                  Connecting alone does not move funds or execute a transaction.
-                  You review and approve each action in your wallet.
-                </p>
-              </div>
-            </div>
-
             <Bridge />
             <BridgeEvents />
 
@@ -162,26 +125,6 @@ export default function Home() {
               Live route availability
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="homeTrustBar">
-        <div>
-          <span>01</span>
-          <strong>Connect</strong>
-          <p>Connect your own wallet. Your assets remain under your control.</p>
-        </div>
-
-        <div>
-          <span>02</span>
-          <strong>Review</strong>
-          <p>Choose the route and review the current transaction details.</p>
-        </div>
-
-        <div>
-          <span>03</span>
-          <strong>Approve</strong>
-          <p>Approve the requested action directly in your connected wallet.</p>
         </div>
       </section>
 
